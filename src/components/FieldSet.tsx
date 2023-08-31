@@ -62,6 +62,7 @@ const FieldSet = ({
   };
 
   const createEditInput = (_fieldType: string, _input: any) => {
+    debugger;
     return (
       <input
         {...(_fieldType === "readonly" ? { readOnly: true } : {})}
@@ -91,7 +92,7 @@ const FieldSet = ({
     );
   };
   let isReadMode = Boolean(formMode === "read" || formMode === undefined);
-  let isEditMode = Boolean(formMode === "edit");
+  let isEditMode = Boolean(formMode === "edit" || formMode === "add");
 
   const readInputProps = input ? { i: input } : { v: value };
   return (
