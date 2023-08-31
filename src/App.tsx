@@ -5,7 +5,7 @@ import FieldSet from "./components/FieldSet";
 
 function App() {
   const [count, setCount] = useState(0);
-  const [pageState, setPageState] = useState("default");
+  const [pageState, setPageState] = useState("read");
 
   const sampleData = { assetId: "GAS-03-A-B302-N", assetName: "Gas meter" };
 
@@ -55,8 +55,24 @@ function App() {
         </p>
       </section>
       <FormSection title="Playground">
-        <FieldSet label={"Asset ID"} value={sampleData.assetId}></FieldSet>
-        <FieldSet label={"Asset Name"} value={sampleData.assetName}></FieldSet>
+        {pageState === "read" && (
+          <>
+            <FieldSet label={"Asset ID"} value={sampleData.assetId}></FieldSet>
+            <FieldSet
+              label={"Asset Name"}
+              value={sampleData.assetName}
+            ></FieldSet>
+          </>
+        )}
+        {pageState === "edit" && (
+          <>
+            <FieldSet label={"Asset ID"} value={sampleData.assetId}></FieldSet>
+            <FieldSet
+              label={"Asset Name"}
+              value={sampleData.assetName}
+            ></FieldSet>
+          </>
+        )}
       </FormSection>
     </>
   );
